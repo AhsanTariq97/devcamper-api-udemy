@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const slugify = require("slugify");
 const geocoder = require("../utils/geocoder");
-const Course = require("../models/Course");
 
 const BootcampSchema = new mongoose.Schema(
   {
@@ -140,9 +139,9 @@ BootcampSchema.pre("save", async function (next) {
 });
 
 // Cascade delete courses when a bootcamp is deleted
-BootcampSchema.pre("deleteOne", async function (next) {
+BootcampSchema.pre("deleteOne", { document: true }, async function (next) {
   console.log(`Courses being removed from bootcamp ${this._id}`);
-  await Course.deleteMany({ bootcamp: this._id });
+  await mongoose.model("Course").deleteMany({ bootcamp: this._id });
   next();
 });
 

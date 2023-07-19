@@ -4,7 +4,7 @@
   "description": "Devcamper Backend\u001b[1;5D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[b\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001bAPI",
   "main": "server.js",
   "scripts": {
-    "start": "NODE_ENV=production node server",
+    "start": "NODE_ENV=production && node server",
     "dev": "nodemon server"
   },
   "author": "Ahsan Tariq",
